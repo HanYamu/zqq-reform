@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <transition name="pop-in">
+    <transition :name="transitionName" @afterLeave="afterLeave">
       <router-view></router-view>
     </transition>
     <div v-if="ajaxLoading" class="ajaxLoading">
@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     afterLeave() {
-      this.$store.commit("transitionName", "pop-in");
+      this.$store.commit("setTransitionName", "pop-in");
     }
   },
   computed: {
@@ -33,11 +33,6 @@ export default {
     transitionName() {
       return this.$store.state.transitionName;
     }
-  },
-  watch: {
-    $route() {
-      // console.log(this.$route, this.$router);
-    }
   }
 };
 </script>
@@ -45,7 +40,7 @@ export default {
 <style lang="less">
 .app {
   height: 100%;
-  height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 .pop-out-enter-active,
@@ -85,12 +80,15 @@ export default {
   top: 0;
   background-color: transparent;
   transition: all 0.3s;
-  z-index: 200;
+  z-index: 1200;
   text-align: center;
   .loadingImg {
-    width: 64px;
-    margin-top: 60%;
+    position: fixed;
+    left: calc(50% - 31px);
+    top: calc(50% - 31px);
+    z-index: 1210;
     animation: rotateCircle 4.2s infinite linear;
+    transform: translate(-50%, -50%);
   }
 }
 @keyframes rotateCircle {

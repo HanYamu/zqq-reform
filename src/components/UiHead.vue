@@ -32,7 +32,7 @@ export default {
       if (this.backClick) {
         this.backClick();
       } else {
-        window.history.go(-1);
+        this.$back();
       }
     }
   }
@@ -40,12 +40,13 @@ export default {
 </script>
 
 <style lang="less">
+@import "../style/variable.less";
 .ui-head {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  background-color: #000;
-  padding-top: 10px;
+  background-color: @bg-head;
+  padding-top: @head-top;
   color: #fff;
   .head-left {
     width: 35px;
@@ -61,8 +62,8 @@ export default {
   }
   .head-title {
     flex: 1;
-    height: 40px;
-    line-height: 40px;
+    height: @head-height;
+    line-height: @head-height;
     text-align: center;
     .head-title-text {
       width: 100%;

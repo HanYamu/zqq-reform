@@ -11,5 +11,9 @@ export default {};
 <style lang="less">
 .ui-container {
   flex: 1;
+  overflow: auto;
+  // &&::-webkit-scrollbar {
+  //   display: none;
+  // }
 }
 </style>

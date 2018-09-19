@@ -13,6 +13,13 @@ Vue.mixin({
     },
     $loaded() {
       this.$store.commit("setAjaxLoading", false);
+    },
+    $to(view) {
+      this.$router.push(view);
+    },
+    $back() {
+      this.$store.commit("setTransitionName", "pop-out");
+      window.history.back("-1");
     }
   }
 });

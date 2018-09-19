@@ -1,18 +1,22 @@
 import Vue from "vue";
 import App from "./App.vue";
-/* 引入路由 */
+/** 引入路由 */
 import router from "./router/router";
-/* 引入vuex */
+/** 引入vuex */
 import store from "./store/store";
-/* 引入样式 */
+/** 引入样式 */
 import "./style/index.less";
-/* 引入过滤器 */
+/** 引入过滤器 */
 import "./filter/filter";
-/* 引入vue全局混合 */
+/** 引入vue全局混合 */
 import "./mixins/mixin";
-/* 引入localStorage */
+/** 引入localStorage */
 import localStorage from "store";
 Vue.prototype.$ls = localStorage;
+/** 引入axios配置 */
+import { axiosGet, axiosPost } from "./utils/ajax.js";
+Vue.prototype.$get = axiosGet;
+Vue.prototype.$post = axiosPost;
 
 Vue.config.productionTip = false;
 

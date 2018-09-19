@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     ajaxLoading: false,
-    transitionName: "false"
+    transitionName: "pop-in"
   },
   mutations: {
     setAjaxLoading(state, value) {

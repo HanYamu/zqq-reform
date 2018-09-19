@@ -9,10 +9,12 @@ export default {};
 </script>
 
 <style lang="less">
+@import "../style/variable.less";
 .ui-layout {
-  display: flex;
-  flex-direction: column;
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: @bg-countainer;
 }
 </style>
